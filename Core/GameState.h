@@ -2,8 +2,7 @@
 // Created by CrazyKrabbyPatty on 10.07.2025.
 //
 
-#ifndef GAMESTATE_H
-#define GAMESTATE_H
+#pragma once
 
 #include <vector>
 
@@ -54,4 +53,3 @@ struct GameState {
     bool isGameOver = false;
 };
 
-#endif //GAMESTATE_H

@@ -1,9 +1,4 @@
-//
-// Created by CrazyKrabbyPatty on 10.07.2025.
-//
-
-#ifndef WINDEFFECT_H
-#define WINDEFFECT_H
+#pragma once
 
 #include "../../Core/GameState.h"
 #include <random>
@@ -39,7 +34,3 @@ namespace Effects {
     };
 
 } // namespace Effects
-
-
-
-#endif //WINDEFFECT_H

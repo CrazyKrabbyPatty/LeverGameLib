@@ -2,8 +2,7 @@
 // Created by CrazyKrabbyPatty on 10.07.2025.
 //
 
-#ifndef GAMECONSTANTS_H
-#define GAMECONSTANTS_H
+#pragma once
 
 namespace GameConstants {
     // Размеры окна
@@ -21,4 +20,3 @@ namespace GameConstants {
     constexpr float WIND_DURATION = 3.0f;
 }
 
-#endif //GAMECONSTANTS_H

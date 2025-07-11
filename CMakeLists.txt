@@ -10,6 +10,14 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 add_library(LeverGameLib SHARED
         LeverGameLib.cpp
         Effects/WindEffect/WindEffect.cpp
+        Physics/PhysicsEngine.cpp
+        Physics/PhysicsEngine.h
+        Objects/Player/Player.cpp
+        Objects/Player/Player.h
+        Objects/Cup/Cup.cpp
+        Objects/Cup/Cup.h
+        Objects/Weight/Weight.cpp
+        Objects/Weight/Weight.h
 )
 
 # Правильное определение для экспорта функций

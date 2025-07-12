@@ -33,4 +33,4 @@ namespace Effects {
         int GetDirection() const { return direction_; }
     };
 
-} // namespace Effects
+}

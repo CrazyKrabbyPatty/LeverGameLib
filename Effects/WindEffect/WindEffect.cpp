@@ -1,7 +1,3 @@
-//
-// Created by CrazyKrabbyPatty on 10.07.2025.
-//
-
 #include "./WindEffect.h"
 #include "../../Core/GameConstants.h"
 

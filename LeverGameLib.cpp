@@ -13,11 +13,12 @@ extern "C" {
         wind.Apply(*state);
     }
 
-//    LEVERGAME_API void InitGame(GameState* state, float playerMass, float weightMass) {
-//        // Implementation here
-//    }
-//
-//    LEVERGAME_API void UpdateGame(GameState* state, float deltaTime) {
-//        // Implementation here
-//    }
+    LEVERGAME_API void InitGame(GameState* state, float playerMass, float weightMass) {
+        // Implementation here
+    }
+
+    LEVERGAME_API void UpdateGame(GameState* state, float deltaTime) {
+        // Implementation here
+    }
+
 }

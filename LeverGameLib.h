@@ -13,4 +13,5 @@ extern "C" {
     LEVERGAME_API void AddRandomWind(GameState* state);
     LEVERGAME_API void InitGame(GameState* state, float playerMass, float weightMass);
     LEVERGAME_API void UpdateGame(GameState* state, float deltaTime);
+    LEVERGAME_API void MovePlayer(GameState* state, float direction, float deltaTime);
 }

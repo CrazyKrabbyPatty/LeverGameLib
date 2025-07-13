@@ -1,16 +1,7 @@
-//
-// Created by CrazyKrabbyPatty on 11.07.2025.
-//
+#pragma once
 
-#ifndef PHYSICSENGINE_H
-#define PHYSICSENGINE_H
+#include "../Core/GameState.h"
 
-
-
-class PhysicsEngine {
-
-};
-
-
-
-#endif //PHYSICSENGINE_H
+namespace PhysicsEngine {
+    void UpdateLever(GameState& state, float deltaTime);
+}

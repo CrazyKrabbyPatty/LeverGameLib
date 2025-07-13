@@ -7,6 +7,7 @@ set(CMAKE_CXX_STANDARD 17)
 add_library(LeverGameLib SHARED
         LeverGameLib.cpp
         Effects/WindEffect/WindEffect.cpp
+        Physics/PhysicsEngine.cpp
 )
 
 # Указываем где искать заголовочные файлы
@@ -16,6 +17,8 @@ target_include_directories(LeverGameLib PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}
         ${CMAKE_CURRENT_SOURCE_DIR}/Effects/WindEffect
         ${CMAKE_CURRENT_SOURCE_DIR}/Core
+        ${CMAKE_CURRENT_SOURCE_DIR}/Objects/Player
+        ${CMAKE_CURRENT_SOURCE_DIR}/Physics
 )
 
 # Правильное определение для экспорта функций

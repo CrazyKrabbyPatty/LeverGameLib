@@ -8,39 +8,36 @@ namespace PhysicsEngine {
         const float g = GameConstants::GRAVITY;
         const float leverLength = GameConstants::LEVER_LENGTH;
 
-        // Момент от игрока
         float tauPlayer = state.player.mass * g * state.player.position * leverLength;
-
-        // Момент от гири
         float tauWeight = state.weight.mass * g * state.weight.position * leverLength;
 
-        // Моменты от эффектов
         float tauEffects = 0.0f;
-        for (auto& effect : state.activeEffects) {
+
+        for (int i = 0; i < state.activeEffectsCount; ) {
+            Effect& effect = state.activeEffects[i];
+
             tauEffects += effect.strength * effect.position * leverLength;
             effect.duration -= deltaTime;
-        }
-        // Удалить эффекты с истекшей длительностью
-        state.activeEffects.erase(
-            std::remove_if(state.activeEffects.begin(), state.activeEffects.end(),
-                [](const Effect& e) { return e.duration <= 0.0f; }),
-            state.activeEffects.end()
-        );
 
-        // Суммарный момент
+            if (effect.duration <= 0.0f) {
+                // удалить эффект с сохранением порядка
+                for (int j = i; j < state.activeEffectsCount - 1; ++j) {
+                    state.activeEffects[j] = state.activeEffects[j + 1];
+                }
+                --state.activeEffectsCount;
+            } else {
+                ++i;
+            }
+        }
+
         float tauTotal = tauPlayer + tauWeight + tauEffects;
 
-        // Момент инерции можно считать условно единичным или добавить реальную формулу
-        constexpr float momentOfInertia = 1.0f; // упростим
-
-        // Угловое ускорение
+        constexpr float momentOfInertia = 1.0f;
         float angularAcceleration = tauTotal / momentOfInertia;
 
-        // Интеграция
         state.lever.angularVelocity += angularAcceleration * deltaTime;
         state.lever.angle += state.lever.angularVelocity * deltaTime;
 
-        // Ограничение максимального угла
         if (std::abs(state.lever.angle) > GameConstants::MAX_ANGLE) {
             state.isGameOver = true;
         }

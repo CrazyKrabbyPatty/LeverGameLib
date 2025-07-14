@@ -2,10 +2,14 @@
 
 #include "Core/GameState.h"
 
-#ifdef LEVERGAME_EXPORTS  // Определяется при сборке DLL
-    #define LEVERGAME_API __declspec(dllexport)
+#if defined(_WIN32) || defined(_WIN64)
+    #ifdef LEVERGAME_EXPORTS
+        #define LEVERGAME_API __declspec(dllexport)
+    #else
+        #define LEVERGAME_API __declspec(dllimport)
+    #endif
 #else
-    #define LEVERGAME_API __declspec(dllimport)
+    #define LEVERGAME_API __attribute((visibility("default")))
 #endif
 
 extern "C" {

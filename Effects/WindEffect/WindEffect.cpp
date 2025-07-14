@@ -37,7 +37,10 @@ namespace Effects {
         newEffect.position = position_;
         newEffect.duration = duration_;
 
-        state.activeEffects.push_back(newEffect);
+        if (state.activeEffectsCount < 10) {
+            state.activeEffects[state.activeEffectsCount] = newEffect;
+            state.activeEffectsCount++;
+        }
     }
 
 } // namespace Effects

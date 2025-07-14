@@ -2,6 +2,8 @@
 
 #include <vector>
 
+constexpr size_t MAX_EFFECTS = 10;
+
 // Типы воздействий
 enum class EffectType {
     None,
@@ -12,10 +14,10 @@ enum class EffectType {
 
 // Параметры воздействия
 struct Effect {
-    EffectType type;
-    float strength;  // Сила воздействия (ветра/камня)
-    float position;  // Позиция на рычаге [-1.0, 1.0]
-    float duration; // Длительность в секундах
+    EffectType type = EffectType::None;
+    float strength = 0.0f;
+    float position = 0.0f;
+    float duration = 0.0f;
 };
 
 // Параметры игрока
@@ -45,7 +47,10 @@ struct GameState {
     Lever lever;
     Player player;
     Weight weight;
-    std::vector<Effect> activeEffects;
+
+    Effect activeEffects[MAX_EFFECTS];
+    int activeEffectsCount = 0;
+
     int score = 0;
     bool isGameOver = false;
 };

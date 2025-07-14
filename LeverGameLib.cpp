@@ -19,7 +19,7 @@ extern "C" {
         state->player.mass = playerMass;
         state->weight.mass = weightMass;
         state->isGameOver = false;
-        state->activeEffects.clear();
+        state->activeEffectsCount = 0;
         state->lever.angle = 0.0f;
         state->lever.angularVelocity = 0.0f;
     }
@@ -66,6 +66,10 @@ extern "C" {
             state->player.position = -1.0f;
             state->player.velocity = 0.0f;
         }
+    }
+
+    LEVERGAME_API int GetActiveEffectsCount(GameState* state) {
+        return state->activeEffectsCount;
     }
 
 }
